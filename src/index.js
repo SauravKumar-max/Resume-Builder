@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { BrowserRouter } from "react-router-dom";
-// import { AuthProvider } from "./context/AuthProvider";
-// import { DetailsProvider } from "./context/DetailsProvider";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider";
+import { DetailsProvider } from "./context/DetailsProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <BrowserRouter>
+    <BrowserRouter>
       <AuthProvider>
-        <DetailsProvider> */}
+        <DetailsProvider>
           <App />
-        {/* </DetailsProvider>
+        </DetailsProvider>
       </AuthProvider>
-    </BrowserRouter> */}
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
