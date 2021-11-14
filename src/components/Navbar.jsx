@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 // import { useRef } from "react";
 // import { useEffect } from "react/cjs/react.development";
@@ -13,9 +13,9 @@ export function Navbar(){
     // }, [step])
 
     return(
-        <nav className="text-white bg-primary p-4 sticky flex items-center justify-between"> 
-            <Link to="/" className="text-2xl font-bold">Resume Builder</Link>
-            <button className="text-xl">{ <FaUser/> }</button>
+        <nav> 
+            <p>Resume Builder</p>
+            <button>{ <FaUser/> }</button>
         </nav>
     )
 }
