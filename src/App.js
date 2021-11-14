@@ -1,12 +1,26 @@
 import React from "react";
-import { Navbar } from './components/Navbar';
+import { Routes, Route } from "react-router-dom"
+import { Navbar } from './components';
+import { Home, Login, SignUp, Details } from "./pages";
+import { PrivateRoute } from "./helpers/PrivateRoute";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      Hello World
+      <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="/login" element={ <Login/> } />
+        <Route path="/signup" element={ <SignUp/> } />
+        <Route 
+          path="/details" 
+          element={ 
+            <PrivateRoute>
+              <Details/>
+            </PrivateRoute> }
+        />
+      </Routes> 
     </div>
   );
 }
