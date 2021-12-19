@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom"
 import { Navbar } from './components';
-import { Home, Login, SignUp, Details } from "./pages";
+import { Home, Login, SignUp, Details, Profile } from "./pages";
 import { PrivateRoute } from "./helpers/PrivateRoute";
 import './App.css';
 
@@ -18,6 +18,13 @@ function App() {
           element={ 
             <PrivateRoute>
               <Details/>
+            </PrivateRoute> }
+        />
+        <Route 
+          path="/profile" 
+          element={ 
+            <PrivateRoute>
+              <Profile/>
             </PrivateRoute> }
         />
       </Routes> 
