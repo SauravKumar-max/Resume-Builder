@@ -7,6 +7,7 @@ const Details = createContext();
 export function DetailsProvider({ children }) {
     const details = {
         step: 1,
+        image: "",
         firstName: "",
         lastName: "",
         email: "",
