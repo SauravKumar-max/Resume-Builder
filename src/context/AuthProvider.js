@@ -23,6 +23,7 @@ export function AuthProvider({children}){
             const response = await axios.post(api, {user: { email, password }});
             if(response.status === 200){
                 loginUser(response.data);
+                setSpinner(false);
             }
         } catch (error){
             if(error.response.status === 404){
