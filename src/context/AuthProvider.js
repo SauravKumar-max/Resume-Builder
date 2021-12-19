@@ -39,18 +39,20 @@ export function AuthProvider({children}){
     }
 
     useEffect(() => {
-        (async function getUser(){
-            try {
-                const api = "https://resume-builder.sauravkumar007.repl.co/user/";
-                const response = await axios.get(api);
-                if(response.status === 200){
-                    setUser(response.data.user);
+        if(token){
+            (async function getUser(){
+                try {
+                    const api = "https://resume-builder.sauravkumar007.repl.co/user/";
+                    const response = await axios.get(api);
+                    if(response.status === 200){
+                        setUser(response.data.user);
+                    }
+                } catch (error) {
+                    console.log(error)
                 }
-            } catch (error) {
-                console.log(error)
-            }
-        })()
-    }, [])
+            })()
+        }
+    }, [token])
 
 
     function loginUser({token}){
