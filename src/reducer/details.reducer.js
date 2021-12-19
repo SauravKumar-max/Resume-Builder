@@ -41,7 +41,9 @@ export function detailReducer(detailState, action){
 
         case "REMOVE_SKILL":
                 return {...detailState, skills: detailState.skills.filter(({id}) => id !== action.payload)}
-                    
+           
+        case "ADD_IMAGE": 
+            return {...detailState, image: action.payload}
         default:
             return { ...detailState };
     }
