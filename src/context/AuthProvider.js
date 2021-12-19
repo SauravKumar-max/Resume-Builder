@@ -1,6 +1,7 @@
-import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { setupAuthHeaderForServiceCalls } from "../helpers/authHeader";
+import axios from "axios";
 
 
 const Auth = createContext();
@@ -10,6 +11,7 @@ export function AuthProvider({children}){
     const [ login, setLogin ] = useState(isUserLoggedIn);
     const [ token, setToken ] = useState(savedToken);
     const [ spinner, setSpinner ] = useState(false);
+    const [ user, setUser ] = useState(null);
     const [ errorMessage, setErrorMessage ] = useState("");
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -36,6 +38,21 @@ export function AuthProvider({children}){
         }
     }
 
+    useEffect(() => {
+        (async function getUser(){
+            try {
+                const api = "https://resume-builder.sauravkumar007.repl.co/user/";
+                const response = await axios.get(api);
+                if(response.status === 200){
+                    setUser(response.data.user);
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        })()
+    }, [])
+
+
     function loginUser({token}){
         setToken(token);
         setLogin(true);
@@ -46,20 +63,14 @@ export function AuthProvider({children}){
     function logout(){
         setToken(null);
         setLogin(false);
+        setUser(null);
         localStorage?.removeItem('login');
     }
 
-    function setupAuthHeaderForServiceCalls(token) {
-        if (token) {
-          return (axios.defaults.headers.common["Authorization"] = token);
-        }
-        delete axios.defaults.headers.common["Authorization"];
-      }
-
-      setupAuthHeaderForServiceCalls(token);
+    setupAuthHeaderForServiceCalls(token);
 
     return(
-        <Auth.Provider value={{ login, setLogin, logout, loginUserWithCredentials, token, spinner, errorMessage }}>
+        <Auth.Provider value={{ login, setLogin, logout, loginUserWithCredentials, token, spinner, errorMessage, user }}>
             {children}
         </Auth.Provider>
     )
