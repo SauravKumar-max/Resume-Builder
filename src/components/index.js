@@ -6,5 +6,4 @@ export { Experiences } from "./Experiences/Experiences";
 export { Education } from "./Experiences/Education";
 export { Work } from "./Experiences/Work";
 export { Skills } from "./Experiences/Skills";
-export { ResumeTemplate } from "./ResumeTemplate";
 export { PrintResume } from "./PrintResume";
