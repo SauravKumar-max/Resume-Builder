@@ -44,7 +44,10 @@ export function detailReducer(detailState, action){
            
         case "ADD_IMAGE": 
             return {...detailState, image: action.payload}
+
+        case "CHOOSE_TEMPLATE": 
+            return {...detailState, template: action.payload}
         default:
-            return { ...detailState };
+            return detailState;
     }
 }
