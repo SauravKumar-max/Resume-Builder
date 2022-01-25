@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { AiFillPicture } from "react-icons/ai";
+import { GiCancel } from "react-icons/gi";
 import { useDetails } from "../context/DetailsProvider";
 
 export function PersonalDetail() {
-  const [imageLink, setImageLink] = useState("");
   const inputClass =
     "border-2 border-grey rounded text-lg mt-3 p-1 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent";
   const { detailState, dispatchDetail } = useDetails();
@@ -14,28 +14,48 @@ export function PersonalDetail() {
       <h2 className="text-2xl font-bold text-center text-black">
         Personal Detail
       </h2>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mt-5">
         {image ? (
-          <img className="w-24 h-24 mt-5 rounded-full" src={image} alt="" />
+          <div className="relative">
+            <img
+              className="w-24 h-24 rounded-full object-cover"
+              src={URL.createObjectURL(image)}
+              alt=""
+            />
+            <div className="absolute inset-0 flex items-center justify-center w-24 h-24 m-auto border-2 border-grey rounded-full bg-lightGrey">
+              <button
+                onClick={() =>
+                  dispatchDetail({
+                    type: "ADD_IMAGE",
+                    payload: "",
+                  })
+                }
+              >
+                <GiCancel />
+              </button>
+            </div>
+          </div>
         ) : (
-          <div className="w-full flex flex-col md:ml-4 mt-4">
-            <label htmlFor="image-link" className="text-grey">
-              Paste Link of your Profile Image
+          <div className="w-full flex flex-col">
+            <label
+              htmlFor="avatar"
+              className="flex items-center justify-center w-24 h-24 m-auto rounded-full bg-lightGrey border-2 border-grey"
+            >
+              <AiFillPicture />
             </label>
             <input
-              className={inputClass}
-              type="text"
-              value={imageLink}
-              onChange={(e) => setImageLink(e.target.value)}
-            />
-            <button
-              className="w-32 m-auto bg-primary text-white text-lg mt-3 font-bold py-2 hover:bg-btn_hover rounded"
-              onClick={() =>
-                dispatchDetail({ type: "ADD_IMAGE", payload: imageLink })
+              className="hidden"
+              type="file"
+              id="avatar"
+              name="avatar"
+              accept="image/png, image/jpeg"
+              onChange={(e) =>
+                dispatchDetail({
+                  type: "ADD_IMAGE",
+                  payload: e.target.files[0],
+                })
               }
-            >
-              save
-            </button>
+            ></input>
           </div>
         )}
       </div>
