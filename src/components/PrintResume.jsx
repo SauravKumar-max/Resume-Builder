@@ -12,8 +12,8 @@ export function PrintResume() {
     <div className="w-full  mx-auto my-2 p-2 border-2 border-coolGray rounded shadow-xl">
       <div className="flex flex-col md:flex-row w-full m-auto scale-50 md:scale-75 transform overflow-hidden">
         <div
-          className={`border-2 ${
-            template === "one" ? "border-red-500" : "border-grey"
+          className={`border-2 border-grey ${
+            template === "one" ? "opacity-100" : "opacity-50"
           } m-2 cursor-pointer	`}
           onClick={() =>
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "one" })
@@ -22,8 +22,8 @@ export function PrintResume() {
           <TemplateOne refrence={template === "one" ? componentRef : null} />
         </div>
         <div
-          className={`border-2 ${
-            template === "two" ? "border-red-500" : "border-grey"
+          className={`border-2 border-grey ${
+            template === "two" ? "opacity-100" : "opacity-50"
           } m-2 cursor-pointer	`}
           onClick={() =>
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "two" })
