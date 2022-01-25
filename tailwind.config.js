@@ -8,6 +8,7 @@ module.exports = {
         black: "#111827",
         white: "white",
         grey: "#6b7280",
+        lightGrey: "#cbd5e169",
         btn_hover: "#0091d2",
       },
 
