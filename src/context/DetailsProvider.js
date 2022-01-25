@@ -18,6 +18,7 @@ export function DetailsProvider({ children }) {
         workExperience: [],
         education: [],
         skills: [],
+        template: "one"
     }
     const [ detailState, dispatchDetail ] = useReducer(detailReducer, details)
     return(
