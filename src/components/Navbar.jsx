@@ -6,6 +6,7 @@ import { useDetails } from "../context/DetailsProvider";
 export function Navbar() {
   const {
     detailState: { step },
+    dispatchDetail,
   } = useDetails();
   const navigate = useNavigate();
   const scrollToTopRef = useRef(null);
@@ -19,7 +20,11 @@ export function Navbar() {
       ref={scrollToTopRef}
       className="text-white bg-primary p-4 sticky flex items-center justify-between"
     >
-      <Link to="/" className="text-2xl font-bold">
+      <Link
+        to="/"
+        className="text-2xl font-bold"
+        onClick={() => dispatchDetail({ type: "CHANGE_STEP", payload: 1 })}
+      >
         Resume Builder
       </Link>
       <button onClick={() => navigate("/profile")} className="text-xl">
