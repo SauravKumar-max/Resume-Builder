@@ -27,9 +27,14 @@ export function Navbar() {
       >
         Resume Builder
       </Link>
-      <button onClick={() => navigate("/profile")} className="text-xl">
-        {<FaUser />}
-      </button>
+      <div className="flex">
+        <Link to="/analyser" className="mx-8 font-bold">
+          Analyser
+        </Link>
+        <button onClick={() => navigate("/profile")} className="text-xl">
+          {<FaUser />}
+        </button>
+      </div>
     </nav>
   );
 }
