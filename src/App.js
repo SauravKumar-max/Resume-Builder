@@ -6,6 +6,16 @@ import { PrivateRoute } from "./helpers/PrivateRoute";
 import "./App.css";
 
 function App() {
+  const nums = [2, 10, 24, 54, 16];
+  let mincut = 10;
+
+  const filterNums = nums.filter(function (num) {
+    return num > mincut;
+  });
+
+  const sortNums = filterNums.sort((a, b) => a - b);
+
+  console.log(sortNums);
   return (
     <div className="App">
       <Navbar />
