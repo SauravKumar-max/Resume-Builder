@@ -1,6 +1,6 @@
 import ReactToPrint from "react-to-print";
 import { useRef } from "react";
-import { TemplateOne, TemplateTwo, TemplateThree } from "./index";
+import { TemplateOne, TemplateTwo, TemplateThree, TemplateFour } from "./index";
 import { useDetails } from "../context/DetailsProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -67,10 +67,7 @@ export function PrintResume() {
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "four" })
           }
         >
-          <TemplateTwo
-            refrence={template === "four" ? componentRef : null}
-            color={"orange"}
-          />
+          <TemplateFour refrence={template === "four" ? componentRef : null} />
         </div>
       </div>
       <div className="flex align-center justify-center">

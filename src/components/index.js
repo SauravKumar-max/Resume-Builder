@@ -11,3 +11,4 @@ export { JobDescription } from "./JobDescription";
 export { TemplateThree } from "./ResumeTemplates/TemplateThree";
 export { TemplateOne } from "./ResumeTemplates/TemplateOne";
 export { TemplateTwo } from "./ResumeTemplates/TemplateTwo";
+export { TemplateFour } from "./ResumeTemplates/TemplateFour";
