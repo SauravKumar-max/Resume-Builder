@@ -1,7 +1,6 @@
 import ReactToPrint from "react-to-print";
 import { useRef } from "react";
-import { TemplateOne } from "./ResumeTemplates/TemplateOne";
-import { TemplateTwo } from "./ResumeTemplates/TemplateTwo";
+import { TemplateOne, TemplateTwo, TemplateThree } from "./index";
 import { useDetails } from "../context/DetailsProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -34,10 +33,7 @@ export function PrintResume() {
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "one" })
           }
         >
-          <TemplateOne
-            refrence={template === "one" ? componentRef : null}
-            color={"primary"}
-          />
+          <TemplateOne refrence={template === "one" ? componentRef : null} />
         </div>
         <div
           className={`border-2 border-grey ${
@@ -47,10 +43,7 @@ export function PrintResume() {
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "two" })
           }
         >
-          <TemplateTwo
-            refrence={template === "two" ? componentRef : null}
-            color={"primary"}
-          />
+          <TemplateTwo refrence={template === "two" ? componentRef : null} />
         </div>
       </div>
       <div className="flex flex-col md:flex-row w-full -mt-32 mx-auto scale-50 md:scale-75 transform overflow-hidden">
@@ -62,9 +55,8 @@ export function PrintResume() {
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "three" })
           }
         >
-          <TemplateOne
+          <TemplateThree
             refrence={template === "three" ? componentRef : null}
-            color={"green"}
           />
         </div>
         <div

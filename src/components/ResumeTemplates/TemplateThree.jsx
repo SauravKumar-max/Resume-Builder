@@ -1,6 +1,6 @@
 import { useDetails } from "../../context/DetailsProvider";
 
-export function TemplateOne({ refrence }) {
+export function TemplateThree({ refrence }) {
   const { detailState } = useDetails();
   const {
     image,
@@ -18,7 +18,7 @@ export function TemplateOne({ refrence }) {
 
   return (
     <div ref={refrence}>
-      <div className="text-3xl font-bold flex items-center justify-center py-5 bg-primary text-white">
+      <div className="text-3xl font-bold flex items-center justify-center py-5 bg-green text-white">
         {image && (
           <img
             className="w-24 h-24 rounded-full mr-5 object-cover"
@@ -31,7 +31,7 @@ export function TemplateOne({ refrence }) {
       <div className="flex">
         <div className="w-1/2">
           <div className="my-8 ml-10 mr-5">
-            <p className="text-2xl font-bold text-primary">Contact</p>
+            <p className="text-2xl font-bold text-green">Contact</p>
             <div className="text-xl">
               <p>Email: {email}</p>
               <p>Phone: {phone}</p>
@@ -40,7 +40,7 @@ export function TemplateOne({ refrence }) {
           </div>
 
           <div className="my-8 ml-10 mr-5">
-            <p className="text-2xl font-bold text-primary">Skills</p>
+            <p className="text-2xl font-bold text-green">Skills</p>
             <ul className="ml-5 list-disc text-xl">
               {skills?.map(({ id, skill, level }) => (
                 <li key={id}>
@@ -55,7 +55,7 @@ export function TemplateOne({ refrence }) {
 
         <div className="w-1/2">
           <div className="my-8 ml-10 mr-5">
-            <p className="text-2xl font-bold text-primary">Education</p>
+            <p className="text-2xl font-bold text-green">Education</p>
             <ul className="ml-5 list-disc text-xl">
               {education?.map(
                 ({ id, degree, city, school, startDate, endDate }) => (
@@ -72,7 +72,7 @@ export function TemplateOne({ refrence }) {
           </div>
 
           <div className="my-8 ml-10 mr-5">
-            <p className="text-2xl font-bold text-primary">Experience</p>
+            <p className="text-2xl font-bold text-green">Experience</p>
             <ul className="ml-5 list-disc text-xl">
               {workExperience?.map(
                 ({ id, job, company, startDate, endDate }) => (

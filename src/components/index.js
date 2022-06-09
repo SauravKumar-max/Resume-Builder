@@ -8,3 +8,6 @@ export { Work } from "./Experiences/Work";
 export { Skills } from "./Experiences/Skills";
 export { PrintResume } from "./PrintResume";
 export { JobDescription } from "./JobDescription";
+export { TemplateThree } from "./ResumeTemplates/TemplateThree";
+export { TemplateOne } from "./ResumeTemplates/TemplateOne";
+export { TemplateTwo } from "./ResumeTemplates/TemplateTwo";
