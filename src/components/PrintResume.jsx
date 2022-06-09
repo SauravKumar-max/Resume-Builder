@@ -17,15 +17,14 @@ export function PrintResume() {
     navigate("/analyser");
     try {
       const api = "https://resume-builder.sauravkumar007.repl.co/analyser";
-      const response = await axios.post(api, { skills: userSkill });
-      console.log(response);
+      await axios.post(api, { skills: userSkill });
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <div className="w-full  mx-auto my-2 p-2 border-2 border-coolGray rounded shadow-xl">
+    <div className="w-full mx-auto my-2 p-2 border-2 border-coolGray rounded shadow-xl">
       <div className="flex flex-col md:flex-row w-full m-auto scale-50 md:scale-75 transform overflow-hidden">
         <div
           className={`border-2 border-grey m-2 cursor-pointer ${
@@ -35,7 +34,10 @@ export function PrintResume() {
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "one" })
           }
         >
-          <TemplateOne refrence={template === "one" ? componentRef : null} />
+          <TemplateOne
+            refrence={template === "one" ? componentRef : null}
+            color={"primary"}
+          />
         </div>
         <div
           className={`border-2 border-grey ${
@@ -45,7 +47,38 @@ export function PrintResume() {
             dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "two" })
           }
         >
-          <TemplateTwo refrence={template === "two" ? componentRef : null} />
+          <TemplateTwo
+            refrence={template === "two" ? componentRef : null}
+            color={"primary"}
+          />
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row w-full -mt-32 mx-auto scale-50 md:scale-75 transform overflow-hidden">
+        <div
+          className={`border-2 border-grey m-2 cursor-pointer ${
+            template === "three" ? "opacity-100" : "opacity-50"
+          }`}
+          onClick={() =>
+            dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "three" })
+          }
+        >
+          <TemplateOne
+            refrence={template === "three" ? componentRef : null}
+            color={"green-600"}
+          />
+        </div>
+        <div
+          className={`border-2 border-grey ${
+            template === "four" ? "opacity-100" : "opacity-50"
+          } m-2 cursor-pointer	`}
+          onClick={() =>
+            dispatchDetail({ type: "CHOOSE_TEMPLATE", payload: "four" })
+          }
+        >
+          <TemplateTwo
+            refrence={template === "four" ? componentRef : null}
+            color={"yellow-500"}
+          />
         </div>
       </div>
       <div className="flex align-center justify-center">

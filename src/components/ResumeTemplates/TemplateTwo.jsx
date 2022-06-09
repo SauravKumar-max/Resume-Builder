@@ -1,6 +1,6 @@
 import { useDetails } from "../../context/DetailsProvider";
 
-export function TemplateTwo({ refrence }) {
+export function TemplateTwo({ refrence, color }) {
   const { detailState } = useDetails();
   const {
     image,
@@ -18,7 +18,7 @@ export function TemplateTwo({ refrence }) {
 
   return (
     <div ref={refrence} className="flex">
-      <div className="w-52 h-screen bg-primary">
+      <div className={`w-52 h-screen bg-${color}`}>
         {image && (
           <img
             className="w-24 h-24 rounded-full object-cover m-auto p-1"
@@ -28,13 +28,13 @@ export function TemplateTwo({ refrence }) {
         )}
       </div>
       <div>
-        <div className="text-primary font-bold text-4xl text-center m-2">
+        <div className={`text-${color} font-bold text-4xl text-center m-2`}>
           {firstName + " " + lastName}
         </div>
         <div className="flex">
           <div className="w-1/2">
             <div className="my-8 ml-6 mr-2">
-              <p className="text-2xl font-bold text-primary">Contact</p>
+              <p className={`text-2xl font-bold text-${color}`}>Contact</p>
               <div className="text-xl">
                 <p>Email: {email}</p>
                 <p>Phone: {phone}</p>
@@ -43,7 +43,7 @@ export function TemplateTwo({ refrence }) {
             </div>
 
             <div className="my-8 ml-6 mr-2">
-              <p className="text-2xl font-bold text-primary">Skills</p>
+              <p className={`text-2xl font-bold text-${color}`}>Skills</p>
               <ul className="ml-5 list-disc text-xl">
                 {skills?.map(({ id, skill, level }) => (
                   <li key={id}>
@@ -58,7 +58,7 @@ export function TemplateTwo({ refrence }) {
 
           <div className="w-1/2">
             <div className="my-8 ml-6 mr-2">
-              <p className="text-2xl font-bold text-primary">Education</p>
+              <p className={`text-2xl font-bold text-${color}`}>Education</p>
               <ul className="ml-5 list-disc text-xl">
                 {education?.map(
                   ({ id, degree, city, school, startDate, endDate }) => (
@@ -75,7 +75,7 @@ export function TemplateTwo({ refrence }) {
             </div>
 
             <div className="my-8 ml-6 mr-2">
-              <p className="text-2xl font-bold text-primary">Experience</p>
+              <p className={`text-2xl font-bold text-${color}`}>Experience</p>
               <ul className="ml-5 list-disc text-xl">
                 {workExperience?.map(
                   ({ id, job, company, startDate, endDate }) => (
