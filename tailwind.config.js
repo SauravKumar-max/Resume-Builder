@@ -10,8 +10,8 @@ module.exports = {
         grey: "#6b7280",
         lightGrey: "#cbd5e169",
         btn_hover: "#0091d2",
-        green: "#059669",
-        orange: "#f59e0b",
+        mygreen: "#059669",
+        myorange: "#f59e0b",
       },
 
       screens: {
