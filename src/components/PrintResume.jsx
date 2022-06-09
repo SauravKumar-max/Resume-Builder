@@ -64,7 +64,7 @@ export function PrintResume() {
         >
           <TemplateOne
             refrence={template === "three" ? componentRef : null}
-            color={"green-600"}
+            color={"green"}
           />
         </div>
         <div
@@ -77,7 +77,7 @@ export function PrintResume() {
         >
           <TemplateTwo
             refrence={template === "four" ? componentRef : null}
-            color={"yellow-500"}
+            color={"orange"}
           />
         </div>
       </div>
